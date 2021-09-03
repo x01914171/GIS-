@@ -839,17 +839,11 @@ namespace Sample
             axMapControl2.Refresh();
         }
 
-        private void copy() {
-            IObjectCopy pOb = new ObjectCopyClass();
-            object copefrom = axMapControl1.Map;
-            object target = pOb.Copy(copefrom);
-            object copeto = axPageLayoutControl1.ActiveView.FocusMap;
-            pOb.Overwrite(target, ref copeto);
-            axPageLayoutControl1.ActiveView.Refresh();
-        }
         # endregion
 
         # region 事件
+
+
         private void axMapControl1_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
         {
             sMapUnits = GetMapUnit(axMapControl1.Map.MapUnits);
@@ -937,7 +931,7 @@ namespace Sample
             
         }
 
-
+        # region 鹰眼
         private void axMapControl1_OnMapReplaced(object sender, IMapControlEvents2_OnMapReplacedEvent e)
         {
             sychronizeEaleEye();
@@ -948,7 +942,6 @@ namespace Sample
             IEnvelope pE = e.newEnvelope as IEnvelope;
             DrawRectangle(pE);
         }
-
         private void axMapControl2_OnMouseDown(object sender, IMapControlEvents2_OnMouseDownEvent e)
         {
             if (axMapControl2.LayerCount > 0) {
@@ -968,7 +961,6 @@ namespace Sample
                 }
             }
         }
-
         //框的拖动
         private void axMapControl2_OnMouseMove(object sender, IMapControlEvents2_OnMouseMoveEvent e)
         {
@@ -978,17 +970,30 @@ namespace Sample
             axMapControl1.CenterAt(point);
             axMapControl1.ActiveView.PartialRefresh(esriViewDrawPhase.esriViewGraphics, null, null);
         }
+        # endregion
 
+        # region page同步
 
-        private void axPageLayoutControl1_OnAfterScreenDraw(object sender, IPageLayoutControlEvents_OnAfterScreenDrawEvent e)
+        private void copy()
         {
-            IActiveView pAV = axPageLayoutControl1.ActiveView.FocusMap as IActiveView;
-            IDisplayTransformation display = pAV.ScreenDisplay.DisplayTransformation;
-            display.VisibleBounds = axMapControl1.Extent;
+            IObjectCopy pOb = new ObjectCopyClass();
+            object copefrom = axMapControl1.Map;
+            object target = pOb.Copy(copefrom);
+            object copeto = axPageLayoutControl1.ActiveView.FocusMap;
+            pOb.Overwrite(target, ref copeto);
+            axPageLayoutControl1.ActiveView.Refresh();
+        }
+        private void axMapControl1_OnAfterScreenDraw(object sender, IMapControlEvents2_OnAfterScreenDrawEvent e)
+        {
+            //获取page当前视图
+            IActiveView page = axPageLayoutControl1.ActiveView.FocusMap as IActiveView;
+            IDisplayTransformation trans = page.ScreenDisplay.DisplayTransformation;
+            trans.VisibleBounds = axMapControl1.Extent;
             axPageLayoutControl1.ActiveView.Refresh();
             copy();
         }
-
+        
+        # endregion
         # endregion
 
         # region TOCC右键
@@ -1070,6 +1075,8 @@ namespace Sample
 
 
         }
+
+
 
 
     }
