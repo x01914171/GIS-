@@ -1,0 +1,13 @@
+G:\desktop\新建文件夹\Sample\Sample\bin\Debug\Sample.exe
+G:\desktop\新建文件夹\Sample\Sample\bin\Debug\Sample.pdb
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.Form1.resources
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.Properties.Resources.resources
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.csproj.GenerateResource.Cache
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.exe
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.pdb
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.csprojResolveAssemblyReference.cache
+G:\desktop\新建文件夹\Sample\Sample\bin\Debug\ESRI.ArcGIS.Desktop.AddIns.dll
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.bookmark2.resources
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.bookmark1.resources
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.measure.resources
+G:\desktop\新建文件夹\Sample\Sample\obj\x86\Debug\Sample.attribute.resources
